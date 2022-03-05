@@ -31,5 +31,4 @@ export default async function handler(
     res.status(401).json(err);
   }
 
-
 }

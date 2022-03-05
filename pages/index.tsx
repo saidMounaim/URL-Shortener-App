@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
         {id && (
           <div className='bg-fuchsia-50 flex items-center justify-center w-full text-xl text-cyan-800 mt-4 p-3 rounded-sm'>
-            <a href={`${baseUrl}/${id}`}>{`${baseUrl}/${id}`}</a>
+            <a href={`${baseUrl}/${id}`} target="_blank">{`${baseUrl}/${id}`}</a>
           </div>
         )}
 
