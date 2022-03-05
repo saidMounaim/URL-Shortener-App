@@ -10,6 +10,11 @@ export default async function handler(
   
   const { url } = req.body;
   const id = Math.random().toString(36).substr(2, 6);
+  const existUrl = await prisma.link.findMany({ where: { url } } );
+
+  if(existUrl.length !== 0) {
+    return res.status(201).json(existUrl[0].linkId);
+  }
 
   try {
     await prisma.link.create({
@@ -18,6 +23,7 @@ export default async function handler(
         linkId: id
       }
     })
+
     res.status(201).json(id);
 
   } catch (err) {
